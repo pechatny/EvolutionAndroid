@@ -6,7 +6,7 @@
 @rem ##########################################################################
 
 @rem Set local scope for the variables with windows NT shell
-if "%OS%"=="Windows_NT" setlocal
+if "%OS%"=="Windows_NT" setloca/home/dpechatnikov/EvolutionAndroid/core/src/com/evolution/gamel
 
 set DIRNAME=%~dp0
 if "%DIRNAME%" == "" set DIRNAME=.
