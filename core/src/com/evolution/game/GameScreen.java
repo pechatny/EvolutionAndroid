@@ -7,16 +7,21 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
@@ -51,6 +56,7 @@ public class GameScreen implements Screen {
     private boolean paused;
     private int level;
     private Joystick joystick;
+    public HighScores scores;
 
     private String filename = "";
 
@@ -86,8 +92,13 @@ public class GameScreen implements Screen {
         return map;
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
     @Override
     public void show() {
+        scores = new HighScores();
         consumableEmitter = new ConsumableEmitter(this);
         joystick = new Joystick();
         hero = new Hero(this, joystick);
@@ -314,4 +325,5 @@ public class GameScreen implements Screen {
     public void dispose() {
         Assets.getInstance().clear();
     }
+
 }

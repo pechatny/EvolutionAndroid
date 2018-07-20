@@ -9,11 +9,16 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.evolution.game.Assets;
 import com.evolution.game.GameScreen;
 import com.evolution.game.Joystick;
 import com.evolution.game.Rules;
 import com.evolution.game.ScreenManager;
+
+import java.util.HashMap;
 
 public class Hero extends Cell {
     private transient TextureRegion[] regions;
@@ -43,7 +48,7 @@ public class Hero extends Cell {
         this.scale = 1.0f;
         this.guiString = new StringBuilder(200);
         this.joystick = joystick;
-        this.lives = 5;
+        this.lives = 1;
     }
 
     @Override
@@ -52,7 +57,10 @@ public class Hero extends Cell {
         scale = 1.0f;
         lives--;
         if(lives <=0){
-            ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.MENU);
+            gs.scores.addScore("ass" + MathUtils.random(0, 10), this.score);
+            ScreenManager.getInstance().setLoadFile("save.dat");
+            ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.GAME_OVER);
+            gs.scores.saveScores();
         }
     }
 
