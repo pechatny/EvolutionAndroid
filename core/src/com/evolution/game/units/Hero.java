@@ -25,7 +25,7 @@ public class Hero extends Cell {
     private float animationTimer;
     private float timePerFrame;
     private StringBuilder guiString;
-    private int score;
+    public static int score;
     private int showedScore;
     private transient Joystick joystick;
     private int lives;
@@ -48,7 +48,7 @@ public class Hero extends Cell {
         this.scale = 1.0f;
         this.guiString = new StringBuilder(200);
         this.joystick = joystick;
-        this.lives = 1;
+        this.lives = 5;
     }
 
     @Override
@@ -57,10 +57,8 @@ public class Hero extends Cell {
         scale = 1.0f;
         lives--;
         if(lives <=0){
-            gs.scores.addScore("ass" + MathUtils.random(0, 10), this.score);
             ScreenManager.getInstance().setLoadFile("save.dat");
             ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.GAME_OVER);
-            gs.scores.saveScores();
         }
     }
 
@@ -106,6 +104,8 @@ public class Hero extends Cell {
             acceleration = joystick.getPower() * 300;
             velocity.add(acceleration * (float) Math.cos(Math.toRadians(angle)) * dt, acceleration * (float) Math.sin(Math.toRadians(angle)) * dt);
         }
+//        if(position.y < 32) position.y = 40;
+//        if(position.x < 32) position.x = 40;
         gs.getParticleEmitter().setup(position.x, position.y, MathUtils.random(-10, 10), MathUtils.random(-10, 10), 0.5f, 5f, 2f, 0.3f, 0.3f, 0, 0.2f, 0.2f, 0.2f, 0, 0);
     }
 
@@ -119,6 +119,7 @@ public class Hero extends Cell {
         guiString.setLength(0);
         guiString.append("Score: ").append(showedScore);
         guiString.append("\r\nLives: ").append(lives);
+        guiString.append("\r\nLevel: ").append(gs.getLevel());
         font.draw(batch, guiString, 20, 700);
     }
 }

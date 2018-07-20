@@ -56,9 +56,12 @@ public class GameScreen implements Screen {
     private boolean paused;
     private int level;
     private Joystick joystick;
-    public HighScores scores;
 
     private String filename = "";
+
+    public int getLevel(){
+        return level;
+    }
 
     public void setFilename(String filename) {
         this.filename = filename;
@@ -92,13 +95,8 @@ public class GameScreen implements Screen {
         return map;
     }
 
-    public Stage getStage() {
-        return stage;
-    }
-
     @Override
     public void show() {
-        scores = new HighScores();
         consumableEmitter = new ConsumableEmitter(this);
         joystick = new Joystick();
         hero = new Hero(this, joystick);
@@ -275,9 +273,9 @@ public class GameScreen implements Screen {
         if (!paused) {
             map.update(dt);
             hero.update(dt);
-//            if (hero.getScale() > 2.0f) {
-//                levelUp();
-//            }
+            if (hero.getScale() > 2.0f) {
+                levelUp();
+            }
             camera.position.set(hero.getPosition().x - 32, hero.getPosition().y - 32, 0);
             if (camera.position.x < Rules.WORLD_WIDTH / 2) {
                 camera.position.x = Rules.WORLD_WIDTH / 2;

@@ -14,11 +14,12 @@ public class HighScores implements Serializable {
 
     public HighScores() {
         FileHandle file = Gdx.files.local("scores.json");
-        String scoreString = file.readString();
-        Json json = new Json();
-        scores = json.fromJson(ArrayList.class, scoreString);
-        if (scores == null) {
-            scores = new ArrayList<HighScore>();
+        if(file.exists()){
+            String scoreString = file.readString();
+            Json json = new Json();
+            scores = json.fromJson(ArrayList.class, scoreString);
+        } else {
+            scores = new ArrayList<>();
         }
     }
 

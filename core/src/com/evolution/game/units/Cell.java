@@ -71,6 +71,7 @@ public abstract class Cell extends GamePoint {
             if (gs.getMap().isPointEmpty(tmp.x, tmp.y, 24.0f * scale)) {
                 position.set(tmp);
             }
+//            position.set(tmp);
         }
         Vector2 vBlocked = gs.getMap().checkBlockedPoint(position.x, position.y, 24.0f * scale);
         if (vBlocked != null){

@@ -27,9 +27,9 @@ public class EnemyEmitter extends ObjectPool<Enemy> {
     public EnemyEmitter(GameScreen gs) {
         this.gs = gs;
         this.addObjectsToFreeList(20);
-        for (int i = 0; i < 200; i++){
-            getActiveElement().init();
-        }
+//        for (int i = 0; i < 200; i++){
+//            getActiveElement().init();
+//        }
     }
 
     public void render(SpriteBatch batch) {

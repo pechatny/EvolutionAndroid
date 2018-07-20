@@ -58,16 +58,25 @@ public class MenuScreen implements Screen {
         skin.add("simpleButtonSkin", textButtonStyle);
 
         final Button btnNewGame = new TextButton("Start New Game", skin, "simpleButtonSkin");
+        final Button btnHighScores = new TextButton("High Scores", skin, "simpleButtonSkin");
         final Button btnExitGame = new TextButton("Exit Game", skin, "simpleButtonSkin");
-        btnNewGame.setPosition(640 - 160, 180);
-        btnExitGame.setPosition(640 - 160, 80);
+        btnNewGame.setPosition(640 - 160, 190);
+        btnHighScores.setPosition(640 - 160, 100);
+        btnExitGame.setPosition(640 - 160, 10);
         stage.addActor(btnNewGame);
         stage.addActor(btnExitGame);
+//        stage.addActor(btnHighScores);
         btnNewGame.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 ScreenManager.getInstance().setLoadFile("save.dat");
                 ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.GAME);
+            }
+        });
+        btnHighScores.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.GAME_OVER);
             }
         });
         btnExitGame.addListener(new ChangeListener() {
