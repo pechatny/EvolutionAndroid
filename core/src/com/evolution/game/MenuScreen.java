@@ -62,7 +62,7 @@ public class MenuScreen implements Screen {
         final Button btnExitGame = new TextButton("Exit Game", skin, "simpleButtonSkin");
         btnNewGame.setPosition(640 - 160, 190);
         btnHighScores.setPosition(640 - 160, 100);
-        btnExitGame.setPosition(640 - 160, 10);
+        btnExitGame.setPosition(640 - 160, 40);
         stage.addActor(btnNewGame);
         stage.addActor(btnExitGame);
 //        stage.addActor(btnHighScores);

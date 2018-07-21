@@ -59,6 +59,7 @@ public class Hero extends Cell {
         if (lives <= 0) {
             ScreenManager.getInstance().setLoadFile("save.dat");
             ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.GAME_OVER);
+            score = 0;
         }
     }
 

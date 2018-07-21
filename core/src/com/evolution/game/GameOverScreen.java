@@ -84,9 +84,10 @@ public class GameOverScreen implements Screen {
         stage = new Stage(ScreenManager.getInstance().getViewport(), batch);
         Gdx.input.setInputProcessor(stage);
 
-        TextField txtUsername = new TextField("", setupSkin());
-        txtUsername.setMessageText("test");
-        txtUsername.setPosition(640 -160, 250);
+        final TextField txtUsername = new TextField("", setupSkin());
+        txtUsername.setWidth(320);
+        txtUsername.setHeight(70);
+        txtUsername.setPosition(640 -160, 210);
         stage.addActor(txtUsername);
         stage.setKeyboardFocus(txtUsername);
 
@@ -158,8 +159,6 @@ public class GameOverScreen implements Screen {
     @Override
     public void dispose() {
         stage.dispose();
-//        Assets.getInstance().clear();
-//        skin.dispose();
     }
 
     /**
@@ -181,22 +180,22 @@ public class GameOverScreen implements Screen {
         textButtonStyle.up = skin.newDrawable("white", Color.DARK_GRAY);
         textButtonStyle.down = skin.newDrawable("white", Color.DARK_GRAY);
         textButtonStyle.over = skin.newDrawable("white", Color.LIGHT_GRAY);
-        textButtonStyle.font = skin.getFont("default");
+        textButtonStyle.font = font32;
         skin.add("default", textButtonStyle);
 
         Label.LabelStyle labelStyle = new Label.LabelStyle();
-        labelStyle.font = skin.getFont("default");
+        labelStyle.font = font96;
         labelStyle.fontColor = Color.BLACK;
         skin.add("default", labelStyle);
 
         Label.LabelStyle redLabelStyle = new Label.LabelStyle();
-        redLabelStyle.font = skin.getFont("default");
+        redLabelStyle.font = font96;
         redLabelStyle.fontColor = Color.RED;
         skin.add("red", redLabelStyle);
 
         TextField.TextFieldStyle textFieldStyle = new TextField.TextFieldStyle();
-        textFieldStyle.font = skin.getFont("default");
-        textFieldStyle.fontColor = Color.BLACK;
+        textFieldStyle.font = font32;
+        textFieldStyle.fontColor = Color.WHITE;
         textFieldStyle.background = skin.newDrawable("white", Color.LIGHT_GRAY);
         skin.add("default", textFieldStyle);
         return skin;

@@ -248,12 +248,22 @@ public class GameScreen implements Screen {
         skin.add("shortButtonSkin", textButtonStyle);
 
         final Button btnPause = new TextButton("II", skin, "shortButtonSkin");
+        final Button btnMenu = new TextButton("Menu", skin, "shortButtonSkin");
         btnPause.setPosition(1180, 620);
+        btnMenu.setPosition(1050, 620);
         stage.addActor(btnPause);
+        stage.addActor(btnMenu);
         btnPause.addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 paused = !paused;
+            }
+        });
+
+        btnMenu.addListener(new ChangeListener() {
+            @Override
+            public void changed(ChangeEvent event, Actor actor) {
+                ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.MENU);
             }
         });
     }

@@ -49,6 +49,7 @@ grass
   rotate: false
   xy: 76, 0
   size: 40, 40
+  split: 10, 10, 10, 10
   orig: 40, 40
   offset: 0, 0
   index: -1

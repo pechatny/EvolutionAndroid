@@ -63,7 +63,7 @@ public class Map implements Serializable {
             float tmpY = y + radius * (float) Math.sin(6.28f / 12f * i);
             int cellX = (int) (tmpX / CELL_SIZE);
             int cellY = (int) (tmpY / CELL_SIZE);
-            if(y > 0 && y < 3 || y > 2125 && y < 2133 ){
+            if(y > 0 && y < 3 || y > 2115 && y < 2133 ){
                 return false;
             }
 

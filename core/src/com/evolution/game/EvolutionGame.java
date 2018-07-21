@@ -30,6 +30,7 @@ public class EvolutionGame extends Game {
         batch = new SpriteBatch();
         ScreenManager.getInstance().init(this, batch);
         ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.MENU);
+//        ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.MENU);
     }
 
     @Override
