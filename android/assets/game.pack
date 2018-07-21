@@ -1,103 +1,103 @@
-
 images1.png
+size: 400, 474
 format: RGBA8888
 filter: Linear,Linear
 repeat: none
-simpleButton
+BadFood
   rotate: false
-  xy: 2, 2
-  size: 320, 80
-  orig: 320, 80
+  xy: 179, 0
+  size: 64, 64
+  orig: 64, 64
   offset: 0, 0
   index: -1
 Char
   rotate: false
-  xy: 2, 84
+  xy: 0, 330
   size: 320, 64
   orig: 320, 64
   offset: 0, 0
   index: -1
+consumablePoint
+  rotate: false
+  xy: 5, 0
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+Enemy
+  rotate: false
+  xy: 116, 0
+  size: 63, 64
+  orig: 63, 64
+  offset: 0, 0
+  index: -1
+enemyPoint
+  rotate: false
+  xy: 0, 0
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+Food
+  rotate: false
+  xy: 243, 0
+  size: 64, 64
+  orig: 64, 64
+  offset: 0, 0
+  index: -1
+grass
+  rotate: false
+  xy: 76, 0
+  size: 40, 40
+  orig: 40, 40
+  offset: 0, 0
+  index: -1
 joystick
   rotate: false
-  xy: 324, 2
+  xy: 0, 80
   size: 200, 250
   orig: 200, 250
   offset: 0, 0
   index: -1
 mapBack
   rotate: false
-  xy: 526, 2
+  xy: 200, 80
   size: 200, 200
   orig: 200, 200
   offset: 0, 0
   index: -1
-shortButton
-  rotate: false
-  xy: 2, 150
-  size: 80, 80
-  orig: 80, 80
-  offset: 0, 0
-  index: -1
-Food
-  rotate: false
-  xy: 84, 150
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-Enemy
-  rotate: false
-  xy: 150, 150
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-BadFood
-  rotate: false
-  xy: 216, 150
-  size: 64, 64
-  orig: 64, 64
-  offset: 0, 0
-  index: -1
-wall
-  rotate: false
-  xy: 282, 150
-  size: 40, 40
-  orig: 40, 40
-  offset: 0, 0
-  index: -1
-grass
-  rotate: false
-  xy: 282, 192
-  size: 40, 40
-  orig: 40, 40
-  offset: 0, 0
-  index: -1
-star16
-  rotate: false
-  xy: 2, 232
-  size: 16, 16
-  orig: 16, 16
-  offset: 0, 0
-  index: -1
 playerPoint
   rotate: false
-  xy: 20, 232
+  xy: 10, 0
   size: 10, 10
   orig: 10, 10
   offset: 0, 0
   index: -1
-enemyPoint
+shortButton
   rotate: false
-  xy: 20, 244
-  size: 5, 5
-  orig: 5, 5
+  xy: 307, 0
+  size: 80, 80
+  orig: 80, 80
   offset: 0, 0
   index: -1
-consumablePoint
+simpleButton
   rotate: false
-  xy: 32, 232
-  size: 5, 5
-  orig: 5, 5
+  xy: 0, 394
+  size: 320, 80
+  orig: 320, 80
+  offset: 0, 0
+  index: -1
+star16
+  rotate: false
+  xy: 20, 0
+  size: 16, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
+wall
+  rotate: false
+  xy: 36, 0
+  size: 40, 40
+  orig: 40, 40
   offset: 0, 0
   index: -1

@@ -56,7 +56,7 @@ public class Hero extends Cell {
         position.set(MathUtils.random(0, Rules.WORLD_WIDTH), MathUtils.random(0, Rules.WORLD_HEIGHT));
         scale = 1.0f;
         lives--;
-        if(lives <=0){
+        if (lives <= 0) {
             ScreenManager.getInstance().setLoadFile("save.dat");
             ScreenManager.getInstance().changeScreen(ScreenManager.ScreenType.GAME_OVER);
         }
@@ -73,7 +73,7 @@ public class Hero extends Cell {
     }
 
     public void update(float dt) {
-        super.update(dt);
+        updateHero(dt);
         animationTimer += dt;
         if (showedScore < score) {
             int delta = (int) ((score - showedScore) * 0.02f);
@@ -122,4 +122,41 @@ public class Hero extends Cell {
         guiString.append("\r\nLevel: ").append(gs.getLevel());
         font.draw(batch, guiString, 20, 700);
     }
+
+    public void updateHero(float dt) {
+        if (angle < 0.0f) {
+            angle += 360.0f;
+        }
+        if (angle > 360.0f) {
+            angle -= 360.0f;
+        }
+        velocity.scl(0.98f);
+
+        float velLen = velocity.len() * dt;
+        tmp.set(velocity);
+        tmp.nor();
+        float nx = tmp.x;
+        float ny = tmp.y;
+        for (int i = 0; i < velLen; i++) {
+            tmp.set(position.x + nx, position.y);
+            if (gs.getMap().isPointEmpty(tmp.x, tmp.y, 24.0f * scale)) {
+                position.set(tmp);
+            }else{
+                System.out.print("elkipaliy1");
+            }
+            tmp.set(position.x, position.y + ny);
+            if (gs.getMap().isPointEmpty(tmp.x, tmp.y, 24.0f * scale)) {
+                position.set(tmp);
+            } else {
+                System.out.print("elkipaliy2  XX: "+tmp.x + "YY: " + tmp.y + "scale: " + scale);
+            }
+//            position.set(tmp);
+        }
+        Vector2 vBlocked = gs.getMap().checkBlockedPoint(position.x, position.y, 24.0f * scale);
+        if (vBlocked != null) {
+            position.add(vBlocked);
+        }
+
+    }
+
 }
